@@ -1,38 +1,157 @@
-.App {
+:root{
+  /* colors */
+  --text-dark-blue: 238, 29%, 16%;
+  --text-soft-red: 14, 88%, 65%;
+  --bg-soft-violet: 273, 75%, 66%;
+  --bg-soft-blue: 240, 73%, 65%;
+
+  --text-darker-grayish-blue: 237, 12%, 33%;
+  --text-dark-grayish-blue: 240, 6%, 50%;
+
+  --divider-grayish-blue: 240, 5%, 91%;
+
+  /* font */
+  --ff: "Kumbh Sans", sans-serif;
+  --fs: 12px;
+  --fw-normal: 400;
+  --fw-large: 700;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  align-items: center;
+  /* background-color: blue; */
+  display: grid;
+  font-family: var(--ff);
+  justify-items: center;
+  width: 100vw;
+}
+#root{
+  align-items: center;
+  background-image: linear-gradient(180deg, hsl(var(--bg-soft-violet)), hsl(var(--bg-soft-blue)));
+  /* background-image: url("../images/illustration-woman-online-mobile.svg"), url("../images/bg-pattern-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: 300px, 200px; */
+  font-family: var(--ff);
+  display: grid;
+  justify-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+.app{
+  background-color: white;
+  border-radius: .65em;
+  box-shadow: 1rem 2.5rem 1rem -2.25rem black;
+  margin: 4rem 0 0;
+  overflow-y: auto;
+  padding: 2rem;
+  width: min(90%, 50rem);
+}
+
+.img-container{
+  background-image: url("../images/illustration-woman-online-mobile.svg"), url("../images/bg-pattern-mobile.svg");
+  background-position: 50% 30px, 50% 130px;
+  background-repeat: no-repeat;
+  background-size: 250px, 250px;
+  height: 40vh;
+  position: absolute;
+  inset: 0;
+  left: 0;
+  top: 0;
+}
+
+.heading{
+  color: hsl(var(--text-dark-blue));
+  font-size: 2rem;
+  font-weight: var(--fw-large);
+  margin: 3rem 0 3rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.items{
+  border-bottom: 2px solid hsl(var(--divider-grayish-blue));
+  display: grid;
+  gap: .85rem;
+  padding: 1rem;
+}
+/* div a{
+  position: relative;
+} */
+.text-container{
+  overflow: auto;
+}
+div h2{
+  /* background-image: url("../images/icon-arrow-down.svg"); */
+  /* background-position: 100% 0; */
+  /* background-repeat: no-repeat; */
+  /* background-size: 12px; */
+  cursor: pointer;
+  font-size: .85rem;
+  font-weight: var(--fw-large);
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+div h2::after{
+  background-image: url("../images/icon-arrow-down.svg");
+  background-repeat: no-repeat;
+  content: "";
+  /* background-color: red; */
+  font-size: .85rem;
+  height: 60%;
+  position: absolute;
+  inset: 0;
+  left: 100%;
+  width: 10px;
+}
+div h2:active::after {
+  /* animation: drop 500ms linear 0 1 normal forwards; */
+  transform: rotate(180deg);
+}
+
+/* @keyframes drop {
+  from{transform: rotate(0deg)}
+  to{transform: rotate(180deg);}
+} */
+
+div p{
+  color: hsl(var(--text-dark-grayish-blue));
+  font-size: var(--fs);
+  font-weight: var(--fw-normal);
+  width: 95%;
+}
+
+@media (min-width: 80rem) {
+  .app{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 70vh;
+    margin: 0;
+    position: relative;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .heading{
+    margin: 2rem 0 2rem;
+    text-align: left;
   }
-  to {
-    transform: rotate(360deg);
+  .img-container{
+    /* background-color: red; */
+    background-image: url("../images/bg-pattern-desktop.svg"), url("../images/illustration-box-desktop.svg"),url("../images/illustration-woman-online-desktop.svg");
+    background-position: -520px -220px,-50px 220px, -50px 100px ;
+    background-repeat: no-repeat;
+    background-size:  800px, 150px, 380px;
+    grid-column: 1/2;
+    height: 100%;
+    /* position: absolute; */
+    /* inset: 0; */
+    /* left: -50vw; */
+    /* top: 30vh; */
+    width: 100%;
+  }
+  .text-container{
+    grid-column: 2/3;
   }
 }
