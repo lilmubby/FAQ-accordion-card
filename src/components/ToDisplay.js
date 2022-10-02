@@ -10,16 +10,23 @@ function ToDisplay(props) {
 
   return (
     <div className="items">
-      <h2
-        onClick={clicked}
-        style={{
-          color: clicked
-            ? "hsl(var(--text-darker-grayish-blue))"
-            : "hsl(var(--text-dark-grayish-blue))",
-        }}
-      >
-        {props.question}
-      </h2>
+      <div>
+        <h2
+          onClick={clicked}
+          style={{
+            color: ans
+              ? "hsl(var(--text-darker-grayish-blue))"
+              : "hsl(var(--text-dark-grayish-blue))",
+            fontWeight: ans ? "var(--fw-large)" : "var(--fw-small)",
+          }}
+        >
+          {props.question}
+        </h2>
+        <div
+          className="spin"
+          style={{ transform: ans ? "rotate(180deg)" : "none" }}
+        ></div>
+      </div>
 
       {ans && <p>{props.answers}</p>}
     </div>

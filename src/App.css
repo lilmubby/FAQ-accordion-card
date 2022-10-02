@@ -25,98 +25,85 @@
 
 body{
   align-items: center;
-  /* background-color: blue; */
   display: grid;
   font-family: var(--ff);
   justify-items: center;
   width: 100vw;
 }
 #root{
-  align-items: center;
+  align-items: end;
   background-image: linear-gradient(180deg, hsl(var(--bg-soft-violet)), hsl(var(--bg-soft-blue)));
-  /* background-image: url("../images/illustration-woman-online-mobile.svg"), url("../images/bg-pattern-mobile.svg");
-  background-repeat: no-repeat;
-  background-size: 300px, 200px; */
   font-family: var(--ff);
   display: grid;
   justify-items: center;
   min-height: 100vh;
+  padding: 3rem 1rem;
   width: 100%;
 }
 .app{
   background-color: white;
-  border-radius: .65em;
-  box-shadow: 1rem 2.5rem 1rem -2.25rem black;
-  margin: 4rem 0 0;
+  border-radius: 1.25rem;
+  box-shadow: 1rem 2.5rem 5rem -2.25rem hsl(var(--bg-soft-violet));
+  margin-top: 10rem;
   overflow-y: auto;
-  padding: 2rem;
-  width: min(90%, 50rem);
+  padding: 3rem 1rem;
+  height: auto;
+  width: min(100%, 50rem);
 }
+
+
 
 .img-container{
   background-image: url("../images/illustration-woman-online-mobile.svg"), url("../images/bg-pattern-mobile.svg");
-  background-position: 50% 30px, 50% 130px;
+  background-position: 50% 0, 50% 100px;
   background-repeat: no-repeat;
   background-size: 250px, 250px;
-  height: 40vh;
+  height: 35vh;
   position: absolute;
   inset: 0;
   left: 0;
-  top: 0;
+  top: 105px;
 }
 
 .heading{
   color: hsl(var(--text-dark-blue));
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: var(--fw-large);
-  margin: 3rem 0 3rem;
+  margin: 4.5rem 0 3rem;
   text-align: center;
 }
 
 .items{
   border-bottom: 2px solid hsl(var(--divider-grayish-blue));
   display: grid;
-  gap: .85rem;
+  gap: .8rem;
   padding: 1rem;
 }
-/* div a{
-  position: relative;
-} */
+
 .text-container{
   overflow: auto;
 }
+.items div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 div h2{
-  /* background-image: url("../images/icon-arrow-down.svg"); */
-  /* background-position: 100% 0; */
-  /* background-repeat: no-repeat; */
-  /* background-size: 12px; */
   cursor: pointer;
   font-size: .85rem;
-  font-weight: var(--fw-large);
   position: relative;
+  width: 100%;
 }
 
-div h2::after{
+
+div .spin{
   background-image: url("../images/icon-arrow-down.svg");
   background-repeat: no-repeat;
-  content: "";
-  /* background-color: red; */
-  font-size: .85rem;
-  height: 60%;
-  position: absolute;
-  inset: 0;
-  left: 100%;
-  width: 10px;
-}
-div h2:active::after {
-  /* animation: drop 500ms linear 0 1 normal forwards; */
-  transform: rotate(180deg);
+  background-size: .85rem;
+  height: 100%;
+  width: 1rem;
 }
 
-/* @keyframes drop {
-  from{transform: rotate(0deg)}
-  to{transform: rotate(180deg);}
-} */
 
 div p{
   color: hsl(var(--text-dark-grayish-blue));
@@ -126,30 +113,45 @@ div p{
 }
 
 @media (min-width: 80rem) {
+  #root{
+    align-items: center;
+    padding: 0;
+  }
   .app{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    height: 70vh;
     margin: 0;
-    position: relative;
+    padding-block: 1rem;
   }
   .heading{
     margin: 2rem 0 2rem;
     text-align: left;
   }
   .img-container{
-    /* background-color: red; */
-    background-image: url("../images/bg-pattern-desktop.svg"), url("../images/illustration-box-desktop.svg"),url("../images/illustration-woman-online-desktop.svg");
-    background-position: -520px -220px,-50px 220px, -50px 100px ;
+    background-image: url("../images/bg-pattern-desktop.svg"), url("../images/illustration-woman-online-desktop.svg");
+    background-position: -520px -220px, -50px 100px ;
     background-repeat: no-repeat;
-    background-size:  800px, 150px, 380px;
+    background-size:  800px, 380px;
     grid-column: 1/2;
-    height: 100%;
-    /* position: absolute; */
-    /* inset: 0; */
-    /* left: -50vw; */
-    /* top: 30vh; */
-    width: 100%;
+    height: 55%;
+    inset: 0;
+    left: 240px;
+    top: 18vh;
+    width: 30%;
+  }
+  .img-container::after{
+    background-image: url("../images/illustration-box-desktop.svg");
+    background-repeat: no-repeat;
+    background-position: -40px 0;
+    background-size: 180px;
+    content: "";
+    display: block;
+    height: 120px;
+    position: absolute;
+    inset: 0;
+    left: -45px;
+    top: 200px;
+    width: 120px;
   }
   .text-container{
     grid-column: 2/3;
